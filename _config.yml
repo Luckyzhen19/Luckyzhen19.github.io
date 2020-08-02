@@ -48,7 +48,7 @@ plugins:
 safe: False
 lsi: False
 username: Luckyzhen19 #github username
-repo: Hanuman #github repository
+repo: Luckyzhen19.github.io #github repository
 branch: master #branch
 relative_source: ../hanuman/ #source directory
 destination: ../hanuman-pages/ #destination directory
