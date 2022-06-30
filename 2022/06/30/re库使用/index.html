@@ -5,8 +5,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="World">
-    <meta name="description" content="哈哈嘿嘿哈哈哈
-">
+    <meta name="description" content="正则表达式[TOC]
+常见匹配模式
+
+
+模式
+描述
+
+
+
+\w
+匹配字母数字及下划线
+
+
+\W
+匹配非字母数字下划线
+
+
+\s
+匹配任意空白字符，等价于 [\t\n\r\f].
+
+
+\S
+匹配任意非空字符
+
+
+\d
+匹配任意数字，等价于 [">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -464,7 +489,161 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="哈哈嘿嘿"><a href="#哈哈嘿嘿" class="headerlink" title="哈哈嘿嘿"></a>哈哈嘿嘿</h1><p>哈哈哈</p>
+                <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>[TOC]</p>
+<h2 id="常见匹配模式"><a href="#常见匹配模式" class="headerlink" title="常见匹配模式"></a>常见匹配模式</h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\w</td>
+<td>匹配字母数字及下划线</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配非字母数字下划线</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意空白字符，等价于 [\t\n\r\f].</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意非空字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任意数字，等价于 [0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意非数字</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>匹配字符串开始</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>匹配字符串结束</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>匹配最后匹配完成的位置</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的末尾。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>用来表示一组字符,单独列出：[amk] 匹配 ‘a’，’m’或’k’</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>不在[]中的字符：[^abc] 匹配除了a,b,c之外的字符。</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配0个或多个的表达式。</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配1个或多个的表达式。</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>精确匹配n个前面表达式。</td>
+</tr>
+<tr>
+<td>{n, m}</td>
+<td>匹配 n 到 m 次由前面的正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td>a&amp;#124;b</td>
+<td>匹配a或b</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>匹配括号内的表达式，也表示一个组</td>
+</tr>
+</tbody></table>
+<p><img src="C:\Users\lucky\AppData\Roaming\Typora\typora-user-images\image-20200820111414278.png" alt="image-20200820111414278"></p>
+<p>参考连接：<a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-metachar.html">正则表达式</a></p>
+<h2 id="re库函数"><a href="#re库函数" class="headerlink" title="re库函数"></a>re库函数</h2><h3 id="re-match"><a href="#re-match" class="headerlink" title="re.match"></a>re.match</h3><p><strong>re.match</strong> 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.match(pattern, string, flags=0)</span><br></pre></td></tr></table></figure>
+
+<p><strong>常规匹配</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">x=<span class="string">&quot;123a456b789c&quot;</span></span><br><span class="line">a=re.match(<span class="string">&quot;123&quot;</span>,x)</span><br><span class="line">b=re.match(<span class="string">&quot;b&quot;</span>,x)</span><br><span class="line"><span class="built_in">print</span>(a.group())     </span><br><span class="line"><span class="built_in">print</span>(a.span())</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#运行结果：</span><br><span class="line">123</span><br><span class="line">(0, 3)</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>泛匹配</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">content = <span class="string">&#x27;Hello 123 4567 World_This is a Regex Demo&#x27;</span></span><br><span class="line">result = re.match(<span class="string">&#x27;^Hello.*Demo$&#x27;</span>, content)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="built_in">print</span>(result.group())</span><br><span class="line"><span class="built_in">print</span>(result.span())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">&lt;_sre.SRE_Match object; span=(0, 41), match=&#x27;Hello 123 4567 World_This is a Regex Demo&#x27;&gt;</span><br><span class="line">Hello 123 4567 World_This is a Regex Demo</span><br><span class="line">(0, 41)</span><br></pre></td></tr></table></figure>
+
+<p><strong>匹配目标</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">content = <span class="string">&#x27;Hello 1234567 World_This is a Regex Demo&#x27;</span></span><br><span class="line">result = re.match(<span class="string">&#x27;^Hello\s(\d+)\sWorld.*Demo$&#x27;</span>, content)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="built_in">print</span>(result.group(<span class="number">1</span>))  <span class="comment">#匹配出（）里的</span></span><br><span class="line"><span class="built_in">print</span>(result.span())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">&lt;_sre.SRE_Match object; span=(0, 40), match=&#x27;Hello 1234567 World_This is a Regex Demo&#x27;&gt;</span><br><span class="line">1234567</span><br><span class="line">(0, 40)</span><br></pre></td></tr></table></figure>
+
+<p><strong>贪婪匹配</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">content = <span class="string">&#x27;Hello 1234567 World_This is a Regex Demo&#x27;</span></span><br><span class="line">result = re.match(<span class="string">&#x27;^He.*(\d+).*Demo$&#x27;</span>, content)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="built_in">print</span>(result.group(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">&lt;_sre.SRE_Match object; span=(0, 40), match=&#x27;Hello 1234567 World_This is a Regex Demo&#x27;&gt;</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
+
+<p><strong>非贪婪匹配</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>匹配模式</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">content = <span class="string">&#x27;&#x27;&#x27;Hello 1234567 World_This</span></span><br><span class="line"><span class="string">is a Regex Demo</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">result = re.match(<span class="string">&#x27;^He.*?(\d+).*?Demo$&#x27;</span>, content, re.S)<span class="comment">#re.S使.可以匹配换行符</span></span><br><span class="line"><span class="built_in">print</span>(result.group(<span class="number">1</span>))   <span class="comment">#输出   1234567</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>转义</strong></p>
+<p>碰到关键字字符时，可在关键字前面加个  <code>\</code> 进行 转义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">content = <span class="string">&#x27;price is $5.00&#x27;</span></span><br><span class="line">result = re.match(<span class="string">&#x27;price is \$5\.00&#x27;</span>, content)</span><br><span class="line"><span class="built_in">print</span>(result)<span class="comment"># 输出 &lt;_sre.SRE_Match object; span=(0, 14), match=&#x27;price is $5.00&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="re-search"><a href="#re-search" class="headerlink" title="re.search"></a>re.search</h3><p>re.search 扫描整个字符串并返回第一个成功的匹配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x=<span class="string">&quot;123a456b789c&quot;</span></span><br><span class="line">a=re.search(<span class="string">&quot;a&quot;</span>,x)</span><br><span class="line">d=re.search(<span class="string">&quot;d&quot;</span>,x)</span><br><span class="line">b=re.search(<span class="string">&quot;\d([a-z])\d.*?([a-z])\d&quot;</span>,x)</span><br><span class="line"><span class="built_in">print</span>(a.group())   <span class="comment">#a</span></span><br><span class="line"><span class="built_in">print</span>(d) 	<span class="comment">#None</span></span><br><span class="line"><span class="built_in">print</span>(b)   <span class="comment">#&lt;re.Match object; span=(2, 9), match=&#x27;3a456b7&#x27;&gt;</span></span><br><span class="line"><span class="built_in">print</span>(b.group(<span class="number">1</span>))  <span class="comment">#a</span></span><br><span class="line"><span class="built_in">print</span>(b.group(<span class="number">2</span>))  <span class="comment">#b</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="re-findall"><a href="#re-findall" class="headerlink" title="re.findall"></a>re.findall</h3><p>搜索字符串，以<strong>列表形式</strong>返回全部能匹配的子串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x=<span class="string">&quot;123a456b789c&quot;</span></span><br><span class="line">a=re.findall(<span class="string">&quot;[a-z]&quot;</span>,x)</span><br><span class="line">b=re.findall(<span class="string">&quot;\d([a-z])\d&quot;</span>,x)</span><br><span class="line"><span class="built_in">print</span>(a)		<span class="comment">#[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(b)		<span class="comment">#[&#x27;a&#x27;, &#x27;b&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="re-sub"><a href="#re-sub" class="headerlink" title="re.sub"></a>re.sub</h3><p>替换字符串中每一个匹配的子串后返回替换后的字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x=<span class="string">&quot;123a456b789c&quot;</span></span><br><span class="line">a=re.sub(<span class="string">&quot;[a-z]&quot;</span>,<span class="string">&quot;&quot;</span>,x)</span><br><span class="line"><span class="comment"># re.sub(被替换的字符正则表达式，替换的字样，目标字符)</span></span><br><span class="line"><span class="built_in">print</span>(a)   <span class="comment">#123456789</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="re-compile"><a href="#re-compile" class="headerlink" title="re.compile"></a>re.compile</h3><p>将正则字符串编译成正则表达式对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x=<span class="string">&quot;123a456b789c&quot;</span></span><br><span class="line">a=re.<span class="built_in">compile</span>(<span class="string">&quot;[a-z]&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(a.match(x))			<span class="comment">#None</span></span><br><span class="line"><span class="built_in">print</span>(a.search(x).group())	<span class="comment">#a</span></span><br><span class="line"><span class="built_in">print</span>(a.sub(<span class="string">&quot;&quot;</span>,x))			<span class="comment">#123456789</span></span><br><span class="line"><span class="built_in">print</span>(a.findall(x))			<span class="comment">#[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-reg-expressions.html#flags">python-re库的使用</a></p>
 
                 
             </div>
@@ -491,7 +670,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://luckyzhen19.github.io/2022/06/30/%E5%93%88%E5%93%88%E5%98%BF%E5%98%BF/">https://luckyzhen19.github.io/2022/06/30/%E5%93%88%E5%93%88%E5%98%BF%E5%98%BF/</a>
+                    <a href="https://luckyzhen19.github.io/2022/06/30/re%E5%BA%93%E4%BD%BF%E7%94%A8/">https://luckyzhen19.github.io/2022/06/30/re%E5%BA%93%E4%BD%BF%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -700,9 +879,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/06/30/re%E5%BA%93%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
@@ -720,9 +900,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -731,6 +911,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -741,13 +922,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/28/hello-world/">
+                <a href="/2022/06/30/%E5%93%88%E5%93%88%E5%98%BF%E5%98%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -758,7 +939,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
                             </span>
                         <span class="publish-author">
                             
