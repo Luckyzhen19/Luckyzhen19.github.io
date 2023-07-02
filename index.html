@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机码</title>
+</head>
+<body>
+    
+    <p id="num"></p>
+    <script>
+        function generateRandomCode() {
+            var characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+            var code = new Date().toLocaleTimeString().replaceAll(':','');
+            for (var i = 0; i < 5; i++) {
+                code += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return code;
+        }
+        
+        function updateNum(){
+            document.getElementById('num').innerText=generateRandomCode();
+        }
+        updateNum();
+        setInterval(function() {
+            updateNum();
+        }, 3000);
+        
+    </script>
+
+
+
+
+
+</body>
+</html>
