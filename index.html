@@ -12,6 +12,7 @@
         function generateRandomCode() {
             var characters = "abcdefghijklmnopqrstuvwxyz0123456789";
             var code = new Date().toLocaleTimeString().replaceAll(':','');
+            code=code.replaceAll(/[^abcdefghijklmnopqrstuvwxyz0123456789]/ig,"")
             for (var i = 0; i < 5; i++) {
                 code += characters.charAt(Math.floor(Math.random() * characters.length));
             }
